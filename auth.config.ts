@@ -5,11 +5,11 @@ export const authConfig = {
     signIn: '/login',
   },
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
-      console.log('nextUrl:', nextUrl); // Add this line to log nextUrl
+    authorized({ auth, request }) {
+      const nextUrl = request?.nextUrl?.pathname; // Add this line to log nextUrl
 
       const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
+      const isOnDashboard = nextUrl?.startsWith('/dashboard');
       if (isOnDashboard) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
