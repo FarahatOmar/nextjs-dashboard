@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Myinvoices app',
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+};
+
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 
